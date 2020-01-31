@@ -4,6 +4,7 @@
   "description": "TreeTrum Grid System",
   "main": "src/sjd-grid.scss",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "rimraf lib && node-sass src/sjd-grid.scss lib/sjd-grid.css"
   },
   "author": "Sam Davis <sam@sjd.co>",
