@@ -1,0 +1,15 @@
+{
+  "name": "@treetrum/grid",
+  "version": "0.0.0",
+  "description": "TreeTrum Grid System",
+  "main": "src/sjd-grid.scss",
+  "scripts": {
+    "build": "rimraf lib && node-sass src/sjd-grid.scss lib/sjd-grid.css"
+  },
+  "author": "Sam Davis <sam@sjd.co>",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "rimraf": "^3.0.1"
+  }
+}
