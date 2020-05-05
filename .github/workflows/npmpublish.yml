@@ -4,8 +4,9 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push: 
+    tags: 
+      - 'v'
 
 jobs:
   build-and-publish:
@@ -21,3 +22,10 @@ jobs:
           NPM_TOKEN: ${{secrets.npm_token}}
       - run: npm ci
       - run: npm publish
+
+      - name: Notify slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{"channel": "CKN3BCR9D","text": "Published @treetrum/grid package to npm"}'
