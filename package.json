@@ -1,6 +1,6 @@
 {
   "name": "@treetrum/grid",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "TreeTrum Grid System",
   "main": "src/sjd-grid.scss",
   "scripts": {
