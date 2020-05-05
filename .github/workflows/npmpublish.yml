@@ -28,4 +28,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"CKN3BCR9D\",\"text\":\"Published @treetrum/grid package to npm\"}'
+          args: '{\"channel\":\"CKVB5C8F4\",\"text\":\"Published @treetrum/grid package to npm\"}'
