@@ -22,11 +22,11 @@ $grid_breakpoints: (
 @mixin breakpoint($breakpoint, $down: false) {
     @if map-has-key($grid_breakpoints, $breakpoint) {
         @if $down {
-            @media (max-width: #{map-get($grid_breakpoints, $breakpoint)}) {
+            @media (max-width: #{map-get($grid_breakpoints, $breakpoint) - (1rem/16)}) {
                 @content;
             }
         } @else {
-            @media (min-width: #{map-get($grid_breakpoints, $breakpoint) + (1rem/16)}) {
+            @media (min-width: #{map-get($grid_breakpoints, $breakpoint)}) {
                 @content;
             }
         }
