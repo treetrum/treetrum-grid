@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $grid_breakpoint_sm: 48rem !default;
 $grid_breakpoint_md: 64rem !default;
 $grid_breakpoint_lg: 90rem !default;
@@ -22,7 +24,7 @@ $grid_breakpoints: (
 @mixin breakpoint($breakpoint, $down: false) {
     @if map-has-key($grid_breakpoints, $breakpoint) {
         @if $down {
-            @media (max-width: #{map-get($grid_breakpoints, $breakpoint) - (1rem/16)}) {
+            @media (max-width: #{map-get($grid_breakpoints, $breakpoint) - math.div(1rem, 16)}) {
                 @content;
             }
         } @else {
@@ -75,8 +77,8 @@ $grid_breakpoints: (
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -$grid_column_gutter / 2;
-    margin-right: -$grid_column_gutter / 2;
+    margin-left: -$grid_column_gutter * 0.5;
+    margin-right: -$grid_column_gutter * 0.5;
 
     &.space-between {
         justify-content: space-between;
@@ -91,8 +93,8 @@ $grid_breakpoints: (
     max-width: 100%;
     flex-basis: 100%;
     flex-grow: 0;
-    padding-right: $grid_column_gutter / 2;
-    padding-left: $grid_column_gutter / 2;
+    padding-right: $grid_column_gutter * 0.5;
+    padding-left: $grid_column_gutter * 0.5;
 }
 
 @each $name, $breakpoint in $grid_breakpoints {
@@ -115,7 +117,7 @@ $grid_breakpoints: (
 
         @for $i from 1 through $grid_column_count {
             .columns.#{$name}-#{$i} {
-                flex-basis: 100% / ($grid_column_count / $i);
+                flex-basis: math.div(100%, math.div($grid_column_count, $i));
                 flex-shrink: 0;
                 flex-grow: 0;
             }
